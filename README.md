@@ -1,89 +1,80 @@
 cat <<EOF > README.md
 # ⚡ HUEVOMAN77 ULTIMATE MANAGER v7.0 ⚡
-> **"La potencia de un SysAdmin en la palma de tu mano."**
+> **"La navaja suiza definitiva para la gestión de redes, seguridad y optimización de servidores."**
 
 ![Copyright](https://img.shields.io/badge/Copyright-%C2%A9%202026%20Huevoman77-blue)
-![Status](https://img.shields.io/badge/Status-Online%20%2F%20Stable-green)
-![Security](https://img.shields.io/badge/Security-Verified-orange)
+![Version](https://img.shields.io/badge/Version-7.0%20GOD%20MODE-pink)
+![License](https://img.shields.io/badge/License-Creative%20Commons-green)
 
 ---
 
-## 💎 ¿Por qué elegir Huevoman77?
-Este no es un script común. Es una estación de trabajo completa diseñada para **optimizar al máximo** el rendimiento de tu red. Ya sea para juegos, streaming o navegación privada, Huevoman77 ajusta los parámetros del Kernel para que la velocidad sea tu único estándar.
+## 📖 Introducción Profesional
+**Huevoman77 Ultimate** es un entorno de ejecución automatizado que permite administrar servidores VPS y dispositivos Android (Termux) con un enfoque en la **velocidad de red** y la **seguridad de túneles**. Diseñado para optimizar la experiencia de usuario en navegación privada y juegos en línea.
 
 ---
 
-## 🛠️ Diccionario Técnico de Funciones
+## 🛠️ Diccionario de Herramientas y Manual de Uso
 
-### 📡 Protocolos de Túnel
-| Función | Descripción para Novatos | Para Expertos |
-| :--- | :--- | :--- |
-| **WireGuard** | Una VPN rápida que no gasta batería. | Implementación UDP con cifrado ChaCha20. |
-| **V2Ray/Xray** | Ideal para saltar bloqueos de operadoras. | Soporte para VMess, VLess y Trojan sobre TLS. |
-| **BadVPN** | Permite que los juegos online funcionen. | UDP Gateway para reenvío de paquetes en puertos 7300+. |
+### 1. 🛡️ Gestión de Túneles y VPN
+* **WireGuard:**
+    * **¿Para qué sirve?** Es el protocolo VPN más moderno. Sustituye a OpenVPN siendo más rápido y ligero.
+    * **Modo de uso:** Selecciona la opción en el menú, genera las llaves del cliente y descarga el archivo `.conf` para usarlo en la app de WireGuard.
+* **V2Ray / Xray:**
+    * **¿Para qué sirve?** El estándar de oro para evadir bloqueos de operadoras (DPI). Permite camuflar el tráfico como navegación web normal.
+    * **Modo de uso:** Activa el protocolo, elige el puerto (443 recomendado) y copia el enlace `vmess://` o `vless://` en tu app inyectora.
+* **BadVPN (UDP Gateway):**
+    * **¿Para qué sirve?** Activa el tráfico UDP necesario para que los juegos (Free Fire, PUBG) no den error de conexión.
+    * **Modo de uso:** Ejecútalo y elige el puerto **7300**. El script lo dejará corriendo en segundo plano automáticamente.
 
-### ⚡ Sistemas de Optimización
-* **Google BBR:** Algoritmo que reduce la pérdida de paquetes. Si tu internet es inestable, BBR lo soluciona.
-* **ZRAM Memory:** Crea una RAM virtual comprimida. Evita que el VPS se apague por falta de memoria.
-* **DNS Cloudflare:** Reduce el "Ping" o latencia, esencial para jugadores de Free Fire o COD.
-* **Limpieza de Logs:** Mantenimiento preventivo que evita que el disco duro se llene de basura.
+### 2. ⚡ Optimización de Sistema (Performance)
+* **Google BBR (Bottleneck Bandwidth and RTT):**
+    * **¿Para qué sirve?** Acelera la velocidad de descarga al reducir la congestión del tráfico TCP en el Kernel de Linux.
+    * **Modo de uso:** Selecciona "Optimizar Red". El script modificará el archivo \`/etc/sysctl.conf\` y activará BBR de forma permanente.
+* **ZRAM Memory Control:**
+    * **¿Para qué sirve?** Crea una partición de RAM comprimida. Si tu VPS tiene 1GB, ZRAM lo hace rendir como si tuviera 2GB.
+    * **Modo de uso:** Actívalo desde el menú de optimización para mejorar la estabilidad si tienes muchos usuarios conectados.
 
-### 🛡️ Módulo de Seguridad Cyber
-* **Anti-Torrent:** Detecta y corta conexiones de BitTorrent para evitar multas de DMCA.
-* **Modo Invisible:** Esconde tu dirección IP detrás de los nodos de Cloudflare.
-* **Escaner de Puertos:** Herramienta de auditoría para verificar vulnerabilidades.
+### 3. 🛡️ Seguridad y Auditoría
+* **Firewall Anti-Torrent:**
+    * **¿Para qué sirve?** Bloquea los puertos y protocolos usados para descargar Torrents, protegiendo tu VPS de baneos por derechos de autor.
+    * **Modo de uso:** Solo actívalo una vez. El script configurará reglas de IPTABLES para denegar el tráfico P2P.
+* **Scaner de Puertos:**
+    * **¿Para qué sirve?** Revisa qué "puertas" están abiertas en tu servidor para evitar hackeos.
+    * **Modo de uso:** Ingresa la IP que quieres revisar y espera el reporte de puertos abiertos.
 
 ---
 
-## 📥 Guía de Instalación (Paso a Paso)
+## 📥 Guía de Instalación Detallada
 
-### 🔵 Opción A: Instalación Automática (Recomendada)
-Para los que quieren velocidad. Este comando descarga, da permisos y ejecuta todo de un solo golpe.
-
-**Copia y pega esto:**
+### 🛠️ Método 1: Instalación Automática (Recomendado)
+Ideal para usuarios que buscan rapidez sin complicaciones.
 \`\`\`bash
 curl -Lso huevoman.sh https://raw.githubusercontent.com/huevoman77/Huevoman77-Ultimate/main/huevoman77.sh && chmod +x huevoman.sh && ./huevoman.sh
 \`\`\`
 
----
-
-### 🟢 Opción B: Instalación Manual (Paso a Paso)
-Para los que prefieren llevar el control total de lo que sucede.
-
-1. **Actualiza tu sistema:**
-   \`\`\`bash
-   pkg update && pkg upgrade -y   # (En VPS usa apt)
-   \`\`\`
-2. **Instala las herramientas necesarias:**
-   \`\`\`bash
-   pkg install git curl wget -y
-   \`\`\`
-3. **Clona el repositorio oficial:**
-   \`\`\`bash
-   git clone https://github.com/huevoman77/Huevoman77-Ultimate.git
-   \`\`\`
-4. **Entra a la carpeta y otorga permisos:**
-   \`\`\`bash
-   cd Huevoman77-Ultimate && chmod +x huevoman77.sh
-   \`\`\`
-5. **Inicia el Manager:**
-   \`\`\`bash
-   ./huevoman77.sh
-   \`\`\`
+### 🏗️ Método 2: Instalación Manual (Paso a Paso)
+Para desarrolladores que desean auditar el proceso:
+1.  **Actualizar paquetes:** \`pkg update && pkg upgrade -y\`
+2.  **Instalar dependencias:** \`pkg install git curl -y\`
+3.  **Clonar el repositorio:** \`git clone https://github.com/huevoman77/Huevoman77-Ultimate.git\`
+4.  **Acceder y dar permisos:** \`cd Huevoman77-Ultimate && chmod +x huevoman77.sh\`
+5.  **Ejecutar:** \`./huevoman77.sh\`
 
 ---
 
-## 👨‍💻 Créditos y Soporte
-Este proyecto es una obra original de **Huevoman77**.
+## 👨‍💻 Créditos y Comunidad
+Este proyecto es desarrollado y mantenido por **Huevoman77**.
 
-* 📡 **Telegram:** [@huevoman77](https://t.me/huevoman77) (Soporte técnico y dudas)
+* 📡 **Telegram Oficial:** [@huevoman77](https://t.me/huevoman77)
 * 👤 **Facebook:** [Perfil de Desarrollador](https://www.facebook.com/profile.php?id=100092597257349)
-* 💬 **Consultas:** Si tienes ideas para la v8.0, escríbeme por cualquiera de estos medios.
+* 🤝 **Contribuciones:** Si deseas mejorar el código, abre un "Pull Request" o contáctame por Telegram.
 
 ---
 
-## ©️ Información Legal
+## ©️ Copyright y Términos de Uso
 **Copyright ©️ 2026 Huevoman77.**
-Este software se entrega "tal cual", sin garantías. El autor no se hace responsable por el mal uso de la herramienta. Mantener siempre los créditos de autoría.
+* Se permite el uso personal y educativo.
+* Prohibido vender este script sin autorización previa.
+* El autor no se responsabiliza por el mal uso de las herramientas de red aquí presentadas.
 
 EOF
